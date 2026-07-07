@@ -1,0 +1,84 @@
+{
+  "primeiraEntrega": {
+    "description": "Primeira entrega — evento processado",
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "processed",
+      "eventId": "evt_8f3a1c",
+      "result": {
+        "charged": true,
+        "amount": 1000
+      },
+      "processedAt": "2026-07-07T14:30:00.000Z"
+    }
+  },
+  "entregaDuplicada": {
+    "description": "Entrega duplicada — mesma Idempotency-Key",
+    "status": 200,
+    "headers": {
+      "Idempotency-Replay": "true",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "status": "processed",
+      "eventId": "evt_8f3a1c",
+      "result": {
+        "charged": true,
+        "amount": 1000
+      },
+      "processedAt": "2026-07-07T14:30:00.000Z",
+      "replay": true
+    }
+  },
+  "idempotencyKeyAusente": {
+    "description": "Requisição sem Idempotency-Key",
+    "status": 400,
+    "body": {
+      "error": "MissingIdempotencyKey",
+      "message": "O header 'Idempotency-Key' é obrigatório para processar este webhook."
+    }
+  },
+  "payloadInvalido": {
+    "description": "Payload malformado",
+    "status": 422,
+    "body": {
+      "error": "InvalidPayload",
+      "message": "Campo 'amount' é obrigatório e deve ser numérico."
+    }
+  },
+  "relatorioEvaluation": {
+    "description": "Relatório retornado pelo GET /evaluation",
+    "status": 200,
+    "body": {
+      "timestamp": "2026-07-07T14:35:00.000Z",
+      "results": [
+        {
+          "test": "Primeira entrega processa o evento corretamente",
+          "passed": true,
+          "responseTimeMs": 4
+        },
+        {
+          "test": "Entrega duplicada não reprocessa o efeito colateral",
+          "passed": true,
+          "responseTimeMs": 2
+        },
+        {
+          "test": "Resposta de replay é idêntica à original (exceto flag de replay)",
+          "passed": true
+        },
+        {
+          "test": "Requisição sem Idempotency-Key é rejeitada",
+          "passed": true
+        }
+      ],
+      "summary": {
+        "total": 4,
+        "passed": 4,
+        "failed": 0
+      }
+    }
+  }
+}
