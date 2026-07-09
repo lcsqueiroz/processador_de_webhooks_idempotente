@@ -1,0 +1,24 @@
+{
+  "name": "processador_de_webhooks_idempotente",
+  "version": "1.0.0",
+  "description": "> 💡 Este é um desafio técnico auto-proposto, criado por mim ([lcsqueiroz](https://github.com/lcsqueiroz)) como parte do meu portfólio de projetos backend. A ideia é simular um problema real de integração com serviços de terceiros (gateways de pagamento, provedores de notificação), definindo as regras antes de iniciar a implementação.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lcsqueiroz/processador_de_webhooks_idempotente.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/lcsqueiroz/processador_de_webhooks_idempotente/issues"
+  },
+  "homepage": "https://github.com/lcsqueiroz/processador_de_webhooks_idempotente#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
