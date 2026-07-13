@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/lcsqueiroz/processador_de_webhooks_idempotente#readme",
   "dependencies": {
+    "axios": "^1.18.1",
     "express": "^5.2.1"
   }
 }
