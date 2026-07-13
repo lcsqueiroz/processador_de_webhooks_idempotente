@@ -165,11 +165,11 @@ Content-Type: application/json
 
 **Núcleo:**
 
-- [ ] Primeira entrega de um evento é processada e armazenada corretamente.
-- [ ] Entregas duplicadas retornam o resultado original sem reprocessar.
-- [ ] Requisição sem `Idempotency-Key` é rejeitada com `400`.
-- [ ] Payload malformado é rejeitado com `422`.
-- [ ] Endpoint `/evaluation` roda e retorna relatório coerente.
+- [x] Primeira entrega de um evento é processada e armazenada corretamente.
+- [x] Entregas duplicadas retornam o resultado original sem reprocessar.
+- [x] Requisição sem `Idempotency-Key` é rejeitada com `400`.
+- [x] Payload malformado é rejeitado com `422`.
+- [x] Endpoint `/evaluation` roda e retorna relatório coerente.
 
 **Diferenciais (opcional):**
 
